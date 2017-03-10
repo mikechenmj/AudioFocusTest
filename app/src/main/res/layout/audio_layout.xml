@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/activity_main"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context="com.android.mikechenmj.audiofocus.MainActivity">
+
+    <Button
+        android:text="播放音乐1"
+        android:id="@+id/button_start_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+    />
+
+    <Button
+        android:text="暂停音乐1"
+        android:id="@+id/button_pause_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+    />
+
+    <Button
+        android:text="播放音乐2"
+        android:id="@+id/button_start_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+    />
+
+    <Button
+        android:text="暂停音乐2"
+        android:id="@+id/button_pause_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+    />
+</LinearLayout>
