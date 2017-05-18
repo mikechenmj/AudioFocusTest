@@ -11,6 +11,7 @@ import java.io.IOException;
  * Created by mikechenmj on 17-3-6.
  */
 
+
 public class Player {
 
     private Context mContext;
@@ -86,8 +87,6 @@ public class Player {
 
     class MyAudioFocusChangeListener implements AudioManager.OnAudioFocusChangeListener {
 
-        private int mOriginalVol;
-
         private int mPreviousState;
 
         private boolean mShouldStart = true;
@@ -101,9 +100,6 @@ public class Player {
         }
 
         private void handlerAudioFocus(int focusChange) {
-            if (focusChange != AudioManager.AUDIOFOCUS_GAIN) {
-                mOriginalVol = mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
-            }
             switch (focusChange) {
                 case AudioManager.AUDIOFOCUS_GAIN:
                     handlerAudioFocusGain();
@@ -116,8 +112,9 @@ public class Player {
                     mMediaPlayer.pause();
                     break;
                 case AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK:
-                    mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC, mOriginalVol / 2,
-                            AudioManager.FLAG_REMOVE_SOUND_AND_VIBRATE);
+//                    mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC, mOriginalVol / 2,
+//                            AudioManager.FLAG_REMOVE_SOUND_AND_VIBRATE);
+                    mMediaPlayer.setVolume(0.5f,0.5f);
                     break;
             }
         }
@@ -134,8 +131,7 @@ public class Player {
                         mShouldStart = true;
                     }
                 case AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK:
-                    mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC, mOriginalVol,
-                            AudioManager.FLAG_REMOVE_SOUND_AND_VIBRATE);
+                    mMediaPlayer.setVolume(1,1);
                     break;
                 default:
             }
